@@ -7,6 +7,8 @@ import { ILoginComponent } from './i-login/i-login.component';
 import { ILoginServiceComponent } from './i-login-service/i-login-service.component';
 import { FormsModule } from '@angular/forms';
 import { IAuthServiceService } from './i-auth-service.service';
+import { KFUserService } from 'src/KFKUserService/kfuser.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,9 +19,10 @@ import { IAuthServiceService } from './i-auth-service.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [IAuthServiceService],
+  providers: [IAuthServiceService, KFUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

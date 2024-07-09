@@ -1,13 +1,5 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<style>
+<!-- <style>
   :host {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 14px;
@@ -56,10 +48,10 @@
   footer a {
     display: flex;
     align-items: center;
-  }
+  } -->
 
   
-
+<!-- 
   /* Responsive Styles 
   @media screen and (max-width: 767px) {
     .card-container > *:not(.circle-link) ,
@@ -88,20 +80,29 @@
       visibility: hidden;
     }
   }**/
-</style>
+</style> -->
 <nav>
   <a routerLink="/login">Login</a><br>
   <a routerLink="/services">Services</a>
 </nav>
 <router-outlet></router-outlet>
+<div>
+  <h1>Users</h1>
+  <ul>
+    <li *ngFor="let user of users">{{ user.KFUserName }} - {{ user.KFUserEmail }}</li>
+  </ul>
 
+  <h2>Add User</h2>
+  <form (ngSubmit)="addUser()">
+    <label>Name:
+      <input [(ngModel)]="newUser.KFUserName" name="name" required />
+    </label>
+    <label>Email:
+      <input [(ngModel)]="newUser.KFUserEmail" name="email" type="email" required />
+    </label>
+    <button type="submit">Add User</button>
+  </form> 
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+</div>
 
 <router-outlet></router-outlet>
