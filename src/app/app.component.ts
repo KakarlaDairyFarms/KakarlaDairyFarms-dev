@@ -10,7 +10,7 @@ import { KFUserService } from 'src/KFKUserService/kfuser.service';
 export class AppComponent implements OnInit {
   title = 'kakarlaDairyFarm-dev';
   users: KFUser[] = [];
-  newUser: KFUser = { KFUserName: 'Username', KFUserEmail: 'email' };
+  newUser: KFUser = { KFUId: 1, KFUserName: 'Username', KFUserEmail: 'email' };
 
   constructor(private userService: KFUserService) {}
 
@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
   addUser() {
     this.userService.createUser(this.newUser).subscribe(user => {
       this.users.push(user);
-      this.newUser = { KFUserName: '', KFUserEmail: '' };
+      this.newUser = { KFUId:0, KFUserName: '', KFUserEmail: '' };
     });
   }
 

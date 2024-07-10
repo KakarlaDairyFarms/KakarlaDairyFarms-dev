@@ -1,0 +1,21 @@
+<div>
+    <h1>User Management</h1>
+    <ul>
+      <li *ngFor="let user of users">
+        {{ user.KFUserName }} - {{ user.KFUserEmail }}
+        <button (click)="updateUser(user)">Update</button>
+        <button (click)="deleteUser(user.KFUId)">Delete</button>
+      </li>
+    </ul>
+  
+    <h2>Add User</h2>
+    <form (ngSubmit)="addUser()">
+      <label>Name:
+        <input [(ngModel)]="newUser.KFUserName" name="name" required />
+      </label>
+      <label>Email:
+        <input [(ngModel)]="newUser.KFUserEmail" name="email" type="email" required />
+      </label>
+      <button type="submit">Add User</button>
+    </form>
+  </div>

@@ -9,12 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { IAuthServiceService } from './i-auth-service.service';
 import { KFUserService } from 'src/KFKUserService/kfuser.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminService } from 'src/admin/admin.service';
+import { AdminUserManagementComponent } from 'src/admin-user-management/admin-user-management.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ILoginComponent,
-    ILoginServiceComponent
+    ILoginServiceComponent,
+    AdminUserManagementComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [IAuthServiceService, KFUserService],
+  providers: [IAuthServiceService, KFUserService, AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -23,5 +23,19 @@ export class ILoginComponent {
       }
     });
   }
+  
+  login() {
+    if (this.authService.loginAs(this.username, this.password)) {
+      // Navigate to the admin user management if the user is admin
+      if (this.authService.isAdmin()) {
+        this.router.navigate(['/admin/user-management']);
+      } else {
+        // Navigate to a different page for non-admin users if needed
+        this.router.navigate(['/services']);
+      }
+    } else {
+      alert('Invalid username or password');
+    }
+  }
 
 }

@@ -45,4 +45,32 @@ export class IAuthServiceService {
         return Promise.reject('Failed to fetch user data');
       });
   }
+  private currentUser: any = null;
+
+  loginAs(username: string, password: string): boolean {
+    // This is just a simulation, replace with actual login logic
+    if (username === 'admin' && password === 'admin') {
+      this.currentUser = { username: 'admin', role: 'admin' };
+      return true;
+    } else if (username === 'user' && password === 'user') {
+      this.currentUser = { username: 'user', role: 'user' };
+      return true;
+    }
+    return false;
+  }
+
+  // Simulate logout
+  logout(): void {
+    this.currentUser = null;
+  }
+
+  // Get the current logged-in user
+  getCurrentUser(): any {
+    return this.currentUser;
+  }
+
+  // Check if the current user is an admin
+  isAdmin(): boolean {
+    return this.currentUser && this.currentUser.role === 'admin';
+  }
 }
