@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { KFUser } from 'src/KDFModel/kfuser';
 
 @Injectable({
@@ -11,8 +11,18 @@ export class AdminService {
 
   constructor(private http: HttpClient) { }
 
+  // getAllUsers(): Observable<KFUser[]> {
+  //   return this.http.get<KFUser[]>(`${this.apiUrl}/users`);
+  // }
+
   getAllUsers(): Observable<KFUser[]> {
-    return this.http.get<KFUser[]>(`${this.apiUrl}/users`);
+    // Temporary hardcoded user data for testing
+    const hardcodedUsers: KFUser[] = [
+      { KFUId: 1, KFUserName: 'John Doe', KFUserEmail: 'john.doe@example.com' },
+      { KFUId: 2, KFUserName: 'Jane Smith', KFUserEmail: 'jane.smith@example.com' },
+      { KFUId: 3, KFUserName: 'Alice Johnson', KFUserEmail: 'alice.johnson@example.com' }
+    ];
+    return of(hardcodedUsers);
   }
 
   createUser(user: KFUser): Observable<KFUser> {

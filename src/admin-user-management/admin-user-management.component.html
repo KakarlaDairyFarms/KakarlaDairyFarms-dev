@@ -2,9 +2,17 @@
     <h1>User Management</h1>
     <ul>
       <li *ngFor="let user of users">
-        {{ user.KFUserName }} - {{ user.KFUserEmail }}
-        <button (click)="updateUser(user)">Update</button>
-        <button (click)="deleteUser(user.KFUId)">Delete</button>
+        <div *ngIf="editedUser && editedUser.KFUId === user.KFUId; else displayUser">
+          <input [(ngModel)]="editedUser.KFUserName" required />
+          <input [(ngModel)]="editedUser.KFUserEmail" type="email" required />
+          <button (click)="updateUser()">Save</button>
+          <button (click)="cancelEditing()">Cancel</button>
+        </div>
+        <ng-template #displayUser>
+          {{ user.KFUserName }} - {{ user.KFUserEmail }}
+          <button (click)="startEditing(user)">Update</button>
+          <button (click)="deleteUser(user.KFUId)">Delete</button>
+        </ng-template>
       </li>
     </ul>
   
