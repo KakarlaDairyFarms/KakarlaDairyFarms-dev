@@ -1,0 +1,36 @@
+
+.loginContainer {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+  border: 2px solid black;
+  vertical-align: middle;
+    margin: 0 auto;
+  /* margin-left: 50%; */
+  /* margin-right: 50%; */
+  margin-top: auto;
+}
+
+._loginFormAll {
+    background-color: darkolivegreen;
+    justify-content: center;
+    align-items: center;
+}
+
+._loginFormAll input {
+    background-color: aquamarine;
+}
+
+.loginContainer form{
+    display: table-cell;
+    vertical-align: middle;
+} 
+.loginContainer form .loginButton {
+    background-color: black;
+    color:bisque;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50%;
+}
+
