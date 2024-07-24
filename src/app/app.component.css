@@ -11,6 +11,22 @@ header {
     text-decoration: none;
     color: #007bff;
   }
+
+  .nav-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 50px;
+    /* Adjust the size as needed */
+  }
+  
+  .nav-right a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: #007bff;
+  }
   
   main {
     padding: 1rem;
