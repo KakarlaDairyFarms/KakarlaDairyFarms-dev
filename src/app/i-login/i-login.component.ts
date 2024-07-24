@@ -31,7 +31,7 @@ export class ILoginComponent {
         this.router.navigate(['/admin/user-management']);
       } else {
         // Navigate to a different page for non-admin users if needed
-        this.router.navigate(['/services']);
+        this.router.navigate(['/services-home']);
       }
     } else {
       alert('Invalid username or password');
