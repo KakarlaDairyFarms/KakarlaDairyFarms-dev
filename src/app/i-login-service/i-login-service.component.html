@@ -1,8 +1,25 @@
+<!-- services-home.component.html -->
 
-<h2>Our Services</h2>
-<ul>
-  <li>Service 1</li>
-  <li>Service 2</li>
-  <li>Service 3</li>
-  <li>Service 4</li>
-</ul>
+<div class="banner">
+  <h1>Welcome to Our Services</h1>
+  <p>Discover what we offer</p>
+</div>
+
+<div class="services-container">
+  <div class="services-grid">
+    <div *ngFor="let service of pagedServices" class="service-item">
+      <h3>{{ service.title }}</h3>
+      <p>{{ service.description }}</p>
+    </div>
+  </div>
+
+  <div class="pagination-controls">
+    <label for="itemsPerPage">Items per page:</label>
+    <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="updatePage()">
+      <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
+    </select>
+
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+</div>
