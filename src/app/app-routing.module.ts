@@ -7,9 +7,9 @@ import { AdminGuard } from 'src/admin/admin.guard';
 
 const routes: Routes = [
   { path: 'login', component: ILoginComponent },
-  { path: 'services', component: ILoginServiceComponent },
+  { path: 'services-home', component: ILoginServiceComponent },
   { path: 'admin/user-management', component: AdminUserManagementComponent, canActivate: [AdminGuard] },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }
+  { path: '', redirectTo: '/services-home', pathMatch: 'full' }, // Default route
 ];
 
 @NgModule({
