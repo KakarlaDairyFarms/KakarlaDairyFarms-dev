@@ -11,6 +11,19 @@ header {
     text-decoration: none;
     color: #007bff;
   } */
+  /* header {
+    background-color:#f8f9fa;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  } */
+  
   nav {
     display: flex;
     justify-content: space-between;
@@ -39,17 +52,35 @@ header {
     color: #007bff;
   }
   
-  main {
+  /* main {
     padding: 1rem;
+  } */
+
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px; /* Adjust based on header height */
+    padding-bottom: 60px; /* Adjust based on footer height */
   }
   
-  footer {
+  /* footer {
     background-color: #f8f9fa;
     padding: 1rem;
     text-align: center;
     position: fixed;
     width: 100%;
     bottom: 0;
+  } */
+  footer {
+    background-color: #333;
+    color: white;
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    z-index: 1000;
   }
   
   footer a {

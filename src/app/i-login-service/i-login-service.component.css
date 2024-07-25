@@ -1,14 +1,29 @@
+/* services-home.component.css */
 .banner {
-    background-color: #f8f9fa;
+    position: relative;
     text-align: center;
-    padding: 2rem;
-    margin-bottom: 2rem;
+    color: white;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+  }
+  
+  .banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   }
   
   .services-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
   }
   
   .services-grid {
@@ -43,3 +58,4 @@
   .pagination-controls button {
     margin: 0 0.5rem;
   }
+  
