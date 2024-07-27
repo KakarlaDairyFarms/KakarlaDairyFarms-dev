@@ -1,9 +1,18 @@
 <!-- services-home.component.html -->
 
-<div class="banner">
-  <h1>Welcome to Our Services</h1>
-  <p>Discover what we offer</p>
-</div>
+<div class="banner-container">
+  <div class="banner">
+    <div class="banner-image" *ngIf="currentBanner === 1">
+      <img src="assets/Images/FarmImage2.jpg" alt="Banner Image 1">
+    </div>
+    <div class="banner-image" *ngIf="currentBanner === 2">
+      <img src="assets/Images/FarmImage3.jpg" alt="Banner Image 2">
+    </div>
+    <div class="banner-content">
+      <h1>Welcome to Our Services</h1>
+      <p>Discover what we offer</p>
+    </div>
+  </div>
 
 <div class="services-container">
   <div class="services-grid">

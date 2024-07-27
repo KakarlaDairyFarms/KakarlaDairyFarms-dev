@@ -23,6 +23,8 @@ export class ILoginServiceComponent implements OnInit {
   currentPage = 1;
   pagedServices: Service[] = [];
   totalPages = 1;
+  currentBanner: number = 1;
+  bannerInterval: any;
 
   ngOnInit() {
     this.updatePage();
@@ -47,5 +49,11 @@ export class ILoginServiceComponent implements OnInit {
       this.currentPage--;
       this.updatePage();
     }
+  }
+
+  startBannerRotation() {
+    this.bannerInterval = setInterval(() => {
+      this.currentBanner = this.currentBanner === 1 ? 2 : 1;
+    }, 5000); // Change banner every 5 seconds
   }
 }
