@@ -10,8 +10,8 @@ import { AdminService } from 'src/admin/admin.service';
 export class AdminUserManagementComponent {
   users: KFUser[] = [];
   newUser: KFUser = { KFUId: 0, KFUserName: '', KFUserEmail: '' };
-  //editedUser: { KFUId: number; KFUserName: string; KFUserEmail: string; };
-  editedUser: KFUser | null = null;
+  editedUser: KFUser = { KFUId: 0, KFUserName: '', KFUserEmail: '' }; // Default initialization
+  currentSection: string = 'userManagement';
 
   constructor(private adminService: AdminService) {}
 
@@ -21,72 +21,61 @@ export class AdminUserManagementComponent {
 
   loadUsers() {
     this.adminService.getAllUsers().subscribe(data => {
-       this.users = data;
+      if (data.length === 0) {
+        this.users = this.getDefaultUsers();
+      } else {
+        this.users = data;
+      }
     });
   }
-  //   this.adminService.getAllUsers().subscribe(
-  //     data => {
-  //       console.log('Service response:', data);
-  //       if (data.length === 0) {
-  //         this.users = this.getDefaultUsers();
-  //         console.log('Default users assigned:', this.users);
-  //       } else {
-  //         this.users = data;
-  //       }
-  //     },
-  //     error => {
-  //       console.error('Error fetching users:', error);
-  //     }
-  //   );
-  // }
 
   addUser() {
     this.adminService.createUser(this.newUser).subscribe(user => {
       this.users.push(user);
       this.newUser = { KFUId: 0, KFUserName: '', KFUserEmail: '' };
+      this.showSection('userManagement');
     });
   }
 
-  // updateUser(user: KFUser) {
-  //   this.adminService.updateUser(user).subscribe(() => {
-  //     this.loadUsers();
-  //   });
-  // }
-
   startEditing(user: KFUser) {
-    this.editedUser = { ...user }; // Create a copy of the user to edit
+    this.editedUser = { ...user };
+    this.showSection('editUser');
   }
 
   updateUser() {
-    if (this.editedUser) {
-      this.adminService.updateUser(this.editedUser).subscribe(
-        () => {
-          this.loadUsers();
-          this.editedUser = null;
-        },
-        error => {
-          console.error('Error updating user:', error);
-        }
-      );
-    }
+    this.adminService.updateUser(this.editedUser).subscribe(
+      () => {
+        this.loadUsers();
+        this.editedUser = { KFUId: 0, KFUserName: '', KFUserEmail: '' }; // Reset to default values
+        this.showSection('userManagement');
+      },
+      error => {
+        console.error('Error updating user:', error);
+      }
+    );
   }
 
   cancelEditing() {
-    this.editedUser = null;
+    this.editedUser = { KFUId: 0, KFUserName: '', KFUserEmail: '' }; // Reset to default values
+    this.showSection('userManagement');
   }
 
   deleteUser(id: number) {
-    this.adminService.deleteUser(id ?? 0).subscribe(() => {
+    this.adminService.deleteUser(id).subscribe(() => {
       this.users = this.users.filter(user => user.KFUId !== id);
     });
   }
 
   getDefaultUsers(): KFUser[] {
     return [
-      { KFUId: 1, KFUserName: 'John Doe', KFUserEmail: 'john.doe@example.com' },
-      { KFUId: 2, KFUserName: 'Jane Smith', KFUserEmail: 'jane.smith@example.com' },
-      { KFUId: 3, KFUserName: 'Alice Johnson', KFUserEmail: 'alice.johnson@example.com' }
+      { KFUId: 1, KFUserName: 'John Doe', KFUserEmail: 'john.doe@kdf.com' },
+      { KFUId: 2, KFUserName: 'Jane Smith', KFUserEmail: 'jane.smith@kdf.com' },
+      { KFUId: 3, KFUserName: 'Alice Johnson', KFUserEmail: 'alice.johnson@kdf.com' }
     ];
+  }
+
+  showSection(section: string) {
+    this.currentSection = section;
   }
 
 }
