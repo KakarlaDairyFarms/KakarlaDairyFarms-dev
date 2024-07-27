@@ -38,9 +38,9 @@ export class AdminService {
   }**/
 
   private users: KFUser[] = [
-    { KFUId: 1, KFUserName: 'John Doe', KFUserEmail: 'john.doe@example.com' },
-    { KFUId: 2, KFUserName: 'Jane Smith', KFUserEmail: 'jane.smith@example.com' },
-    { KFUId: 3, KFUserName: 'Alice Johnson', KFUserEmail: 'alice.johnson@example.com' }
+    { KFUId: 1, KFUserName: 'John Doe', KFUserEmail: 'john.doe@kdf.com' },
+    { KFUId: 2, KFUserName: 'Jane Smith', KFUserEmail: 'jane.smith@kdf.com' },
+    { KFUId: 3, KFUserName: 'Alice Johnson', KFUserEmail: 'alice.johnson@kdf.com' }
   ];
 
 
