@@ -1,16 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { KFUser } from 'src/KDFModel/kfuser';
 import { KFUserService } from 'src/KFKUserService/kfuser.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+  
+
 export class AppComponent implements OnInit {
   title = 'kakarlaDairyFarm-dev';
   users: KFUser[] = [];
   newUser: KFUser = { KFUId: 1, KFUserName: 'Username', KFUserEmail: 'email' };
+
+  
 
   constructor(private userService: KFUserService) {}
 
@@ -37,3 +44,14 @@ export class AppComponent implements OnInit {
     });
   }
 }
+export class app {
+
+constructor (private router:Router){}
+
+  navigateHome() {
+    this.router.navigate(['/']); // Redirects to the home page
+  }
+}
+  
+
+  
