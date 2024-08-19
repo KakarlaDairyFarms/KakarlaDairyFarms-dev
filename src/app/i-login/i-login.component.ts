@@ -12,6 +12,15 @@ export class ILoginComponent {
   password: string = '';
   loginFailed: boolean = false;
 
+  isRegistering: boolean = false;
+  registerFirstName: string = '';
+  registerLastName: string = '';
+  registerEmail: string = '';
+  accountPurpose: string = 'customer'; // default value
+  employeeRole: string = 'staff'; // default value
+  registerPassword: string = '';
+  confirmPassword: string = '';
+
   constructor(private authService: IAuthServiceService, private router: Router) { }
 
   onLogin(): void {
@@ -36,6 +45,20 @@ export class ILoginComponent {
     } else {
       alert('Invalid username or password');
     }
+  }
+
+  toggleRegister() {
+    this.isRegistering = !this.isRegistering;
+  }
+
+  register() {
+    // Add your registration logic here
+    console.log('Register', this.registerFirstName, this.registerLastName, this.registerEmail, this.accountPurpose, this.employeeRole, this.registerPassword, this.confirmPassword);
+  }
+
+  onPurposeChange(event: Event) {
+    const selectElement = event.target as HTMLSelectElement;
+    this.accountPurpose = selectElement.value;
   }
 
 }
