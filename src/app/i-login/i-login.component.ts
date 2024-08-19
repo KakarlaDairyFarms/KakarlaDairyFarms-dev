@@ -22,6 +22,9 @@ export class ILoginComponent {
   confirmPassword: string = '';
 
   constructor(private authService: IAuthServiceService, private router: Router) { }
+  navigateHome(){
+    this.router.navigate(['/']);
+  }
 
   onLogin(): void {
     this.authService.login(this.username, this.password).subscribe(success => {
