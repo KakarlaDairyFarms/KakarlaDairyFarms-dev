@@ -7,19 +7,25 @@ import { ILoginComponent } from './i-login/i-login.component';
 import { ILoginServiceComponent } from './i-login-service/i-login-service.component';
 import { FormsModule } from '@angular/forms';
 import { IAuthServiceService } from './i-auth-service.service';
+import { KFUserService } from 'src/KFKUserService/kfuser.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AdminService } from 'src/admin/admin.service';
+import { AdminUserManagementComponent } from 'src/admin-user-management/admin-user-management.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ILoginComponent,
-    ILoginServiceComponent
+    ILoginServiceComponent,
+    AdminUserManagementComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [IAuthServiceService],
+  providers: [IAuthServiceService, KFUserService, AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

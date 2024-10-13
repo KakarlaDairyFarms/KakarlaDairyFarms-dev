@@ -1,0 +1,69 @@
+/* services-home.component.css */
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.banner-container {
+  position: relative;
+  width: 100%;
+  min-height: 300px; /* Ensure the banner has a minimum height */
+  overflow: hidden;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 300px; /* Adjust as needed */
+}
+
+.banner-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 1s ease-in-out;
+}
+
+.banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 1;
+}
+
+.services-container {
+  padding: 20px;
+  margin-top: 20px; /* Ensure some space below the banner */
+}
+
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Add gap between service items */
+}
+
+.service-item {
+  flex: 1 1 calc(33.333% - 20px);
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-sizing: border-box; /* Ensure padding and border are included in width/height */
+}
+
+.pagination-controls {
+  margin-top: 20px;
+}
+
