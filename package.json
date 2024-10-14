@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng build --configuration production --base-href https://KAKARLABHANUTEJA.github.io/KakarlaDairyFarms-dev/ && npx angular-cli-ghpages --dir=dist/kakarla-dairy-farm-dev"
+    "deploy": "ng build --configuration production --base-href https://KakarlaDairyFarms.github.io/KakarlaDairyFarms-dev/ && npx angular-cli-ghpages --dir=dist/kakarla-dairy-farm-dev"
   },
   "private": true,
   "dependencies": {
