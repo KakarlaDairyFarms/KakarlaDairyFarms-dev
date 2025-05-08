@@ -58,6 +58,9 @@ export class ILoginComponent {
     // Add your registration logic here
     console.log('Register', this.registerFirstName, this.registerLastName, this.registerEmail, this.accountPurpose, this.employeeRole, this.registerPassword, this.confirmPassword);
   }
+  cancelLogin(): void{
+    this.router.navigate(['/services-home']);
+  }
 
   onPurposeChange(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
