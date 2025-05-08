@@ -20,7 +20,7 @@
 <form (ngSubmit)="onLogin()"> -->
   <!-- <div *ngIf="loginFailed">Login failed. Please try again.</div> -->
 
- -->
+
  
 
  
@@ -31,34 +31,51 @@
     <input class="password" type="password" id="password" [(ngModel)]="password" align="center" placeholder="Password" name="password">
     <a class="submit"  (click)="login()">Sign in</a>
     <a class="register"  (click)="toggleRegister()">Register</a>
-    <p class="forgot" align="center"><a href="#">Forgot Password?</a></p>
+    <!-- <a class="cancelLogin"  (click)="cancelLogin()">Continue Anonymous</a>
+    <p class="forgot" align="center"><a href="#">Forgot Password?</a></p> -->
+    <div class="footer-links">
+      <a href="#" class="forgot">Forgot Password?</a>
+      <a class="cancelLogin" (click)="cancelLogin()">Continue Anonymous</a>
+    </div>
   </form> 
   
   <form *ngIf="isRegistering" (ngSubmit)="register()" id="_registerForm" class="_registerFormAll">
     <p class="sign" align="center">Register</p>
-    <input class="firstName" type="text" id="firstName" [(ngModel)]="registerFirstName" align="center" placeholder="First Name" name="firstName">
-    <input class="lastName" type="text" id="lastName" [(ngModel)]="registerLastName" align="center" placeholder="Last Name" name="lastName">
-    <input class="email" type="email" id="email" [(ngModel)]="registerEmail" align="center" placeholder="Email ID" name="email">
-    
-    <select class="accountPurpose" [(ngModel)]="accountPurpose" (change)="onPurposeChange($event)" name="accountPurpose">
+  
+    <div class="form-row">
+      <input type="text" class="half-input" [(ngModel)]="registerFirstName" placeholder="First Name" name="firstName" />
+      <input type="text" class="half-input" [(ngModel)]="registerLastName" placeholder="Last Name" name="lastName" />
+    </div>
+  
+    <input type="email" class="username" [(ngModel)]="registerEmail" placeholder="Email ID" name="email" />
+  
+    <select class="username" [(ngModel)]="accountPurpose" (change)="onPurposeChange($event)" name="accountPurpose">
       <option value="customer">Customer</option>
       <option value="employee">Employee</option>
       <option value="dealer">Dealer</option>
     </select>
-
-    <div *ngIf="accountPurpose === 'employee'">
-      <label for="role">Role:</label>
-      <select class="role" [(ngModel)]="employeeRole" name="role">
+  
+    <div *ngIf="accountPurpose === 'employee'" class="form-row">
+      <select class="half-input" [(ngModel)]="employeeRole" name="role">
+        <option value="" disabled selected>Select Role</option>
         <option value="staff">Staff</option>
         <option value="admin">Admin</option>
       </select>
     </div>
-
-    <input class="register-password" type="password" id="registerPassword" [(ngModel)]="registerPassword" align="center" placeholder="Password" name="password">
-    <input class="confirmPassword" type="password" id="confirmPassword" [(ngModel)]="confirmPassword" align="center" placeholder="Confirm Password" name="confirmPassword">
     
-    <a class="submit-registration" (click)="register()">Register</a>
-    <a class="cancel" (click)="toggleRegister()">Cancel</a>
+  
+    <div class="form-row">
+      <input type="password" class="half-input" [(ngModel)]="registerPassword" placeholder="Password" name="password" />
+      <input type="password" class="half-input" [(ngModel)]="confirmPassword" placeholder="Confirm Password" name="confirmPassword" />
+    </div>
+  
+    <div class="buttons-row">
+      <button type="submit" class="submit">Register</button>
+      <button type="button" class="cancel" (click)="toggleRegister()">Cancel</button>
+    </div>
   </form>
+  
+  
+  
               
   </div>
