@@ -49,7 +49,7 @@ export class app {
 constructor (private router:Router){}
 
   navigateHome() {
-    this.router.navigate(['/']); // Redirects to the home page
+    this.router.navigate(['/services-home']); // Redirects to the home page
   }
 }
   
