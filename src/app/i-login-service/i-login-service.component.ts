@@ -12,10 +12,12 @@ interface Service {
 })
 export class ILoginServiceComponent implements OnInit {
   services = [
-    { title: 'Service 1', description: 'Description 1' },
-    { title: 'Service 2', description: 'Description 2' },
-    { title: 'Service 3', description: 'Description 3' },
-    { title: 'Service 4', description: 'Description 4' },
+    { title: 'Dairy', description: 'Milk, Ghee, Curd,....' },
+    { title: 'Vegetable Groceries', description: 'Raw Bananas, Okra, Yam, Pumpkin, Banana Leaves,..' },
+    { title: 'Poultry', description: 'Broiler Chicken, Eggs, Country Chicken...' },
+    { title: 'Manure', description: 'Organic Fertilizers for agricultural farms.' },
+    { title: 'Feed/Forage', description: 'Organic feed for your cattles.' },
+    { title: 'Test Service', description: 'Test Service Description' },
     // Add more services as needed
   ];
   itemsPerPageOptions = [5, 10, 15, 20];

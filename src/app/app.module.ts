@@ -11,13 +11,15 @@ import { KFUserService } from 'src/KFKUserService/kfuser.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminService } from 'src/admin/admin.service';
 import { AdminUserManagementComponent } from 'src/admin-user-management/admin-user-management.component';
+import { AboutUsComponent } from './component/about-us/about-us.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ILoginComponent,
     ILoginServiceComponent,
-    AdminUserManagementComponent
+    AdminUserManagementComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
